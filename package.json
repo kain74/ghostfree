@@ -12,7 +12,7 @@
         "build": "vite build",
         "preview": "vite preview",
         "start": "node --env-file=.env server/index.js",
-        "server": "node --env-file=.env server/index.js",
+        "server": "node server/index.js",
         "db:generate": "prisma generate",
         "db:push": "prisma db push",
         "db:migrate:deploy": "prisma migrate deploy",
