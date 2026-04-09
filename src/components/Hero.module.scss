@@ -122,13 +122,18 @@
     flex-wrap: wrap;
 }
 
-.hero__button {
+.hero__button,
+.hero__button--primary,
+.hero__button--ghost {
     display: inline-block;
     padding: 0.9rem 2.5rem;
     border-radius: 0;
     font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    min-width: 140px;
+    min-height: 44px;
+    box-sizing: border-box;
 }
 
 .hero__button--primary {
