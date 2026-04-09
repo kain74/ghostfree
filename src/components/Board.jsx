@@ -356,7 +356,7 @@ export default function Board() {
                 </div>
 
                 <div className={styles['board__hero']}>
-                    <h2 className={styles['board__heading']}>작업 메모 보드</h2>
+                    <h2 className={styles['board__heading']}>공지사항</h2>
                 </div>
 
                 <div className={styles['board__panel']}>
