@@ -377,30 +377,30 @@
     .board__hero {
         grid-template-columns: 1fr;
     }
-}
 
-@media (max-width: 640px) {
-    .board {
-        padding: 6rem 1.5rem;
-    }
+    @media (max-width: 768px) {
+        .board {
+            padding: 6rem 1.5rem;
+        }
 
-    .board__toolbar,
-    .board__panel-head,
-    .board__actions,
-    .board__detail-meta {
-        align-items: flex-start;
-    }
+        .board__toolbar,
+        .board__panel-head,
+        .board__actions,
+        .board__detail-meta {
+            align-items: flex-start;
+        }
 
-    .board__create-row {
-        justify-content: flex-start;
-    }
+        .board__create-row {
+            justify-content: flex-start;
+        }
 
-    .board__list-item {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+        .board__list-item {
+            align-items: flex-start;
+            flex-direction: column;
+        }
 
-    .board__modal {
-        padding: 1rem;
+        .board__modal {
+            padding: 1rem;
+        }
     }
 }
