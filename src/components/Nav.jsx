@@ -6,7 +6,7 @@ const links = [
     { label: '프로젝트', href: '#projects' },
     { label: '기술', href: '#skills' },
     { label: '연락처', href: '#contact' },
-    { label: '보드', href: '#board' },
+    { label: '공지사항', href: '#board' },
 ]
 
 export default function Nav() {
