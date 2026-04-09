@@ -434,8 +434,8 @@ export default function Board() {
                                           {mode === 'edit'
                                               ? '글 수정'
                                               : mode === 'create'
-                                                ? '글 작성'
-                                                : '글 상세'}
+                                                                                                ? '글 작성'
+                                                                                                : ''}
                                       </h3>
 
                                       <div className={styles['board__actions']}>
@@ -472,7 +472,7 @@ export default function Board() {
                                   {mode === 'view' && selectedPost ? (
                                       <article className={styles['board__detail']}>
                                           <h4 className={styles['board__detail-title']}>
-                                              {selectedPost.title}
+                                              {selectedPost.title || '테스트 제목'}
                                           </h4>
                                           <div className={styles['board__detail-meta']}>
                                               <span>{selectedPost.author}</span>
