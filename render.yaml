@@ -5,7 +5,7 @@ services:
       plan: free
       rootDir: .
       buildCommand: npm install; npm run db:generate
-      startCommand: npm run db:migrate:deploy; npm run server
+      startCommand: npm run db:migrate:deploy || true; npm run server
       autoDeploy: true
       envVars:
           - key: DATABASE_URL
