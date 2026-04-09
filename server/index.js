@@ -9,6 +9,8 @@ const prisma = new PrismaClient()
 const app = express()
 const port = Number(process.env.PORT) || 4000
 const MIN_PASSWORD_LENGTH = 4
+const shouldUseFallbackStore =
+    process.env.NODE_ENV !== 'production' || process.env.ENABLE_FALLBACK_STORE === 'true'
 const ADMIN_SECRET = process.env.ADMIN_SECRET
 if (!ADMIN_SECRET) {
     console.error('[FATAL] ADMIN_SECRET 환경변수가 설정되지 않았습니다. 서버를 시작할 수 없습니다.')
@@ -110,6 +112,12 @@ function findMemoryPostById(postId) {
     return memoryPosts.find((post) => post.id === postId) ?? null
 }
 
+function respondDatabaseUnavailable(res) {
+    return res.status(503).json({
+        message: '데이터베이스에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.',
+    })
+}
+
 app.use(
     cors({
         origin(origin, callback) {
@@ -138,6 +146,10 @@ app.get('/api/posts', async (_req, res) => {
         res.json(posts.map(sanitizePost))
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
+            if (!shouldUseFallbackStore) {
+                return respondDatabaseUnavailable(res)
+            }
+
             return res.json(sortPostsByCreatedAtDesc(memoryPosts).map(sanitizePost))
         }
 
@@ -158,6 +170,10 @@ app.get('/api/posts/:id', async (req, res) => {
         post = await prisma.post.findUnique({ where: { id: postId } })
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
+            if (!shouldUseFallbackStore) {
+                return respondDatabaseUnavailable(res)
+            }
+
             post = findMemoryPostById(postId)
         } else {
             throw error
@@ -200,6 +216,10 @@ app.post('/api/posts', requireAdmin, async (req, res) => {
         })
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
+            if (!shouldUseFallbackStore) {
+                return respondDatabaseUnavailable(res)
+            }
+
             const now = new Date()
             post = {
                 id: memoryNextId++,
@@ -242,6 +262,10 @@ app.put('/api/posts/:id', requireAdmin, async (req, res) => {
         existingPost = await prisma.post.findUnique({ where: { id: postId } })
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
+            if (!shouldUseFallbackStore) {
+                return respondDatabaseUnavailable(res)
+            }
+
             existingPost = findMemoryPostById(postId)
         } else {
             throw error
@@ -281,6 +305,10 @@ app.put('/api/posts/:id', requireAdmin, async (req, res) => {
         })
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
+            if (!shouldUseFallbackStore) {
+                return respondDatabaseUnavailable(res)
+            }
+
             const nextPasswordHash = legacyPost ? hashPassword(password) : existingPost.passwordHash
             const updatedPost = {
                 ...existingPost,
@@ -316,6 +344,10 @@ app.delete('/api/posts/:id', requireAdmin, async (req, res) => {
         existingPost = await prisma.post.findUnique({ where: { id: postId } })
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
+            if (!shouldUseFallbackStore) {
+                return respondDatabaseUnavailable(res)
+            }
+
             existingPost = findMemoryPostById(postId)
         } else {
             throw error
@@ -337,6 +369,10 @@ app.delete('/api/posts/:id', requireAdmin, async (req, res) => {
         await prisma.post.delete({ where: { id: postId } })
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
+            if (!shouldUseFallbackStore) {
+                return respondDatabaseUnavailable(res)
+            }
+
             memoryPosts = memoryPosts.filter((post) => post.id !== postId)
             saveFallbackPosts(memoryPosts)
         } else {
