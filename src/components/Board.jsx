@@ -84,20 +84,25 @@ export default function Board() {
                 }
             )
         )
-        // board__hero heading을 스크롤에 따라 애니메이션
-        const heroHeading = ref.current?.querySelector(
-            `.${styles['board__hero']} .${styles['board__heading']}`
-        )
-        if (heroHeading) {
-            cleanups.push(
-                animateSection(heroHeading, [heroHeading], {
-                    start: 'top 90%',
-                    end: 'top 40%',
-                    stagger: 0,
-                    scrub: true,
-                    y: 42,
-                })
-            )
+        // board__hero 전체를 root로, 내부 [data-hero-headline] 요소에 애니메이션 적용
+        const heroEl = ref.current?.querySelector(`.${styles['board__hero']}`)
+        if (heroEl) {
+            const heroHeadlines = Array.from(heroEl.querySelectorAll('[data-hero-headline]'));
+            if (heroHeadlines.length > 0) {
+                cleanups.push(
+                    animateSection(
+                        heroEl,
+                        heroHeadlines,
+                        {
+                            start: 'top 90%',
+                            end: 'top 40%',
+                            stagger: 0,
+                            scrub: true,
+                            y: 42,
+                        }
+                    )
+                );
+            }
         }
         return () => cleanups.forEach((fn) => fn && fn())
     }, [])
