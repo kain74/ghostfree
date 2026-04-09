@@ -5,6 +5,7 @@ import styles from './Contact.module.scss'
 const links = [
     { label: 'Email', value: 'kain7402@naver.com', href: 'mailto:kain7402@naver.com' },
     { label: 'GitHub', value: 'github.com/kain74', href: 'https://github.com/kain74' },
+    { label: 'Phone', value: '010-5023-0083', href: 'tel:010-5023-0083' },
 ]
 
 export default function Contact() {

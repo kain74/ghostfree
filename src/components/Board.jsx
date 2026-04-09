@@ -67,23 +67,44 @@ export default function Board() {
     )
 
     useLayoutEffect(() => {
-        return animateSection(
-            ref.current,
-            [
-                `.${styles['board__label']}`,
-                `.${styles['board__heading']}`,
-                `.${styles['board__panel']}`,
-            ],
-            {
-                start: 'top 84%',
-                end: 'top 38%',
-                stagger: 0.1,
-                scrub: true,
-                y: 42,
-                followSelector: '[data-section-inner]',
-                followY: 6,
-            }
-        )
+        const cleanups = [];
+        // 기존 섹션 애니메이션
+        cleanups.push(
+            animateSection(
+                ref.current,
+                [
+                    `.${styles['board__label']}`,
+                    `.${styles['board__panel']}`,
+                ],
+                {
+                    start: 'top 84%',
+                    end: 'top 38%',
+                    stagger: 0.1,
+                    scrub: true,
+                    y: 42,
+                    followSelector: '[data-section-inner]',
+                    followY: 6,
+                }
+            )
+        );
+        // board__hero heading을 스크롤에 따라 애니메이션
+        const heroHeading = ref.current?.querySelector(`.${styles['board__hero']} .${styles['board__heading']}`);
+        if (heroHeading) {
+            cleanups.push(
+                animateSection(
+                    heroHeading,
+                    [heroHeading],
+                    {
+                        start: 'top 90%',
+                        end: 'top 40%',
+                        stagger: 0,
+                        scrub: true,
+                        y: 42,
+                    }
+                )
+            );
+        }
+        return () => cleanups.forEach(fn => fn && fn());
     }, [])
 
     useEffect(() => {
@@ -356,7 +377,7 @@ export default function Board() {
                 </div>
 
                 <div className={styles['board__hero']}>
-                    <h2 className={styles['board__heading']}>공지사항</h2>
+                    <h2 className={styles['board__heading']} data-hero-headline>공지사항</h2>
                 </div>
 
                 <div className={styles['board__panel']}>
