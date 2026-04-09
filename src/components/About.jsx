@@ -52,14 +52,17 @@ export default function About() {
                         </p>
                         <p className={styles['about__bio']}>
                             React 기반 컴포넌트 설계, 접근성, 성능 최적화를 바탕으로 유지보수 가능한
-                            UI를 구현합니다. 빠르게 바뀌는 요구사항에도 흔들리지 않는 화면 구조를 만드는
-                            데 집중하고 있습니다.
+                            UI를 구현합니다. 빠르게 바뀌는 요구사항에도 흔들리지 않는 화면 구조를
+                            만드는 데 집중하고 있습니다.
                         </p>
 
                         <div className={styles['about__facts']}>
                             {[
                                 { label: '위치', value: '서울, 대한민국' },
-                                { label: '전문분야', value: 'React · TypeScript · Frontend Engineering' },
+                                {
+                                    label: '전문분야',
+                                    value: 'React · TypeScript · Frontend Engineering',
+                                },
                                 { label: '협업', value: '브랜딩 사이트 · 서비스 UI · 운영 화면' },
                             ].map((f) => (
                                 <div key={f.label} className={styles['about__fact']}>

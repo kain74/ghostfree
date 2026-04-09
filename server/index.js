@@ -1,6 +1,8 @@
 import cors from 'cors'
 import express from 'express'
 import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import path from 'node:path'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -17,8 +19,35 @@ function requireAdmin(req, res, next) {
     if (req.headers['x-admin-key'] === ADMIN_SECRET) return next()
     return res.status(403).json({ message: '관리자 권한이 필요합니다.' })
 }
-let memoryPosts = []
-let memoryNextId = 1
+
+const fallbackPostsFilePath = path.join(process.cwd(), 'server', 'data', 'board-posts.json')
+
+function loadFallbackPosts() {
+    try {
+        if (!existsSync(fallbackPostsFilePath)) {
+            return []
+        }
+
+        const raw = readFileSync(fallbackPostsFilePath, 'utf8')
+        const data = JSON.parse(raw)
+        return Array.isArray(data) ? data : []
+    } catch (error) {
+        console.error('[WARN] fallback 게시글 파일을 읽지 못했습니다.', error)
+        return []
+    }
+}
+
+function saveFallbackPosts(posts) {
+    try {
+        mkdirSync(path.dirname(fallbackPostsFilePath), { recursive: true })
+        writeFileSync(fallbackPostsFilePath, JSON.stringify(posts, null, 2), 'utf8')
+    } catch (error) {
+        console.error('[WARN] fallback 게시글 파일을 저장하지 못했습니다.', error)
+    }
+}
+
+let memoryPosts = loadFallbackPosts()
+let memoryNextId = memoryPosts.reduce((maxId, post) => Math.max(maxId, Number(post.id) || 0), 0) + 1
 
 const allowedOrigins = [
     process.env.FRONTEND_URL,
@@ -33,7 +62,7 @@ function isDatabaseUnavailableError(error) {
     return (
         error?.code === 'P1001' ||
         error?.code === 'P1000' ||
-        String(error?.message ?? '').includes('Can\'t reach database server')
+        String(error?.message ?? '').includes("Can't reach database server")
     )
 }
 
@@ -72,7 +101,9 @@ function hasPassword(post) {
 }
 
 function sortPostsByCreatedAtDesc(posts) {
-    return [...posts].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    return [...posts].sort(
+        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    )
 }
 
 function findMemoryPostById(postId) {
@@ -180,6 +211,7 @@ app.post('/api/posts', requireAdmin, async (req, res) => {
                 updatedAt: now,
             }
             memoryPosts.push(post)
+            saveFallbackPosts(memoryPosts)
         } else {
             throw error
         }
@@ -228,7 +260,10 @@ app.put('/api/posts/:id', requireAdmin, async (req, res) => {
                 message: `기존 글 보호를 위해 ${MIN_PASSWORD_LENGTH}자 이상 비밀번호를 새로 설정해주세요.`,
             })
         }
-    } else if (typeof password !== 'string' || !verifyPassword(password, existingPost.passwordHash)) {
+    } else if (
+        typeof password !== 'string' ||
+        !verifyPassword(password, existingPost.passwordHash)
+    ) {
         return res.status(403).json({ message: '비밀번호가 일치하지 않습니다.' })
     }
 
@@ -256,6 +291,7 @@ app.put('/api/posts/:id', requireAdmin, async (req, res) => {
                 updatedAt: new Date(),
             }
             memoryPosts = memoryPosts.map((item) => (item.id === postId ? updatedPost : item))
+            saveFallbackPosts(memoryPosts)
             post = updatedPost
         } else {
             throw error
@@ -290,7 +326,10 @@ app.delete('/api/posts/:id', requireAdmin, async (req, res) => {
         return res.status(404).json({ message: '게시글을 찾을 수 없습니다.' })
     }
 
-    if (hasPassword(existingPost) && (typeof password !== 'string' || !verifyPassword(password, existingPost.passwordHash))) {
+    if (
+        hasPassword(existingPost) &&
+        (typeof password !== 'string' || !verifyPassword(password, existingPost.passwordHash))
+    ) {
         return res.status(403).json({ message: '비밀번호가 일치하지 않습니다.' })
     }
 
@@ -299,6 +338,7 @@ app.delete('/api/posts/:id', requireAdmin, async (req, res) => {
     } catch (error) {
         if (isDatabaseUnavailableError(error)) {
             memoryPosts = memoryPosts.filter((post) => post.id !== postId)
+            saveFallbackPosts(memoryPosts)
         } else {
             throw error
         }

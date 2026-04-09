@@ -5,3 +5,4 @@ dist
 !.env.example
 prisma/dev.db
 prisma/dev.db-journal
+server/data/board-posts.json

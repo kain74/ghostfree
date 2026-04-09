@@ -169,7 +169,10 @@ export default function Projects() {
                                         <p className={styles['projects__card-desc']}>{p.desc}</p>
                                         <div className={styles['projects__tags']}>
                                             {p.tags.map((t, idx) => (
-                                                <span key={t} className={`${styles['projects__tag']} ${styles[`projects__tag--${getTagColorByIndex(idx)}`]}`}>
+                                                <span
+                                                    key={t}
+                                                    className={`${styles['projects__tag']} ${styles[`projects__tag--${getTagColorByIndex(idx)}`]}`}
+                                                >
                                                     {t}
                                                 </span>
                                             ))}

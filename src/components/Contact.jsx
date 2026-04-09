@@ -5,7 +5,11 @@ import styles from './Contact.module.scss'
 const links = [
     { label: 'Email', value: 'kain7402@naver.com', href: 'mailto:kain7402@naver.com' },
     { label: 'GitHub', value: 'github.com/GhostFree', href: 'https://github.com/GhostFree' },
-    { label: 'LinkedIn', value: 'linkedin.com/in/GhostFree', href: 'https://linkedin.com/in/GhostFree' },
+    {
+        label: 'LinkedIn',
+        value: 'linkedin.com/in/GhostFree',
+        href: 'https://linkedin.com/in/GhostFree',
+    },
 ]
 
 export default function Contact() {
@@ -50,8 +54,8 @@ export default function Contact() {
                             </span>
                         </h2>
                         <p className={styles['contact__sub']}>
-                            브랜드 사이트부터 서비스 UI, 운영 화면까지 사용자 경험을 개선하는 작업이라면
-                            편하게 연락해주세요.
+                            브랜드 사이트부터 서비스 UI, 운영 화면까지 사용자 경험을 개선하는
+                            작업이라면 편하게 연락해주세요.
                         </p>
                     </div>
 

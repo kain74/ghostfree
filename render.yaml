@@ -1,18 +1,18 @@
 services:
-  - type: web
-    name: portfolio-api
-    runtime: node
-    plan: free
-    rootDir: .
-    buildCommand: npm install; npm run db:generate
-    startCommand: npm run db:migrate:deploy; npm run server
-    autoDeploy: true
-    envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: ADMIN_SECRET
-        sync: false
-      - key: FRONTEND_URL
-        sync: false
-      - key: PORT
-        value: 4000
+    - type: web
+      name: portfolio-api
+      runtime: node
+      plan: free
+      rootDir: .
+      buildCommand: npm install; npm run db:generate
+      startCommand: npm run db:migrate:deploy; npm run server
+      autoDeploy: true
+      envVars:
+          - key: DATABASE_URL
+            sync: false
+          - key: ADMIN_SECRET
+            sync: false
+          - key: FRONTEND_URL
+            sync: false
+          - key: PORT
+            value: 4000

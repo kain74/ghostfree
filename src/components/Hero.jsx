@@ -56,10 +56,7 @@ export default function Hero() {
                 </p>
 
                 <h1 className={styles['hero__headline']} data-hero-headline>
-                    <span
-                        className={styles['hero__headline-line']}
-                        aria-label={headlinePrimary}
-                    >
+                    <span className={styles['hero__headline-line']} aria-label={headlinePrimary}>
                         {renderHeadlineChars(headlinePrimary)}
                     </span>
                     <br />

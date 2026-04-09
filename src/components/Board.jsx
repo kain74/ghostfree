@@ -375,15 +375,15 @@ export default function Board() {
                     </div>
 
                     {isAdmin ? (
-                    <div className={styles['board__create-row']}>
-                        <button
-                            type="button"
-                            className={styles['board__ghost-button']}
-                            onClick={handleCreateMode}
-                        >
-                            새 글 작성
-                        </button>
-                    </div>
+                        <div className={styles['board__create-row']}>
+                            <button
+                                type="button"
+                                className={styles['board__ghost-button']}
+                                onClick={handleCreateMode}
+                            >
+                                새 글 작성
+                            </button>
+                        </div>
                     ) : null}
 
                     {message ? <p className={styles['board__message']}>{message}</p> : null}
