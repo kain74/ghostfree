@@ -433,9 +433,7 @@ export default function Board() {
                                       <h3 className={styles['board__panel-title']}>
                                           {mode === 'edit'
                                               ? '글 수정'
-                                              : mode === 'create'
-                                                ? '글 작성'
-                                                : ''}
+                                                                                            : ''}
                                       </h3>
 
                                       <div className={styles['board__actions']}>
