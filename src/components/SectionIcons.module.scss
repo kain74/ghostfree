@@ -1,0 +1,17 @@
+.iconsArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.icon {
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform, filter;
+    transition: background 0.3s;
+}

@@ -387,9 +387,9 @@ export default function Board() {
                             type="button"
                             className={styles['board__admin-toggle']}
                             onClick={handleAdminToggle}
-                            title={isAdmin ? '관리자 모드 해제' : '관리자 모드'}
+                            title="관리자 모드"
                         >
-                            {isAdmin ? '🔓' : '🔒'}
+                            🔓
                         </button>
                     </div>
 

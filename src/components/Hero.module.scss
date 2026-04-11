@@ -75,7 +75,7 @@
 
 .hero__headline {
     font-family: var(--font-display);
-    font-size: clamp(2.55rem, 6.8vw, 6.2rem);
+    font-size: clamp(2.55rem, 5.9vw, 6rem);
     font-weight: 200;
     line-height: 1.05;
     color: var(--text);
@@ -99,7 +99,7 @@
 
 .hero__headline-emphasis {
     display: inline-block;
-    font-size: 1.08em;
+    font-size: 1em;
 }
 
 .hero__headline-neutral {
