@@ -489,9 +489,6 @@ export default function Board() {
 
                                   {mode === 'view' && selectedPost ? (
                                       <article className={styles['board__detail']}>
-                                          <h4 className={styles['board__detail-title']}>
-                                              {selectedPost.title || '테스트 제목'}
-                                          </h4>
                                           <div className={styles['board__detail-meta']}>
                                               <span>{selectedPost.author}</span>
                                               <span>{formatDate(selectedPost.updatedAt)}</span>
