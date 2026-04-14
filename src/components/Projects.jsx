@@ -19,7 +19,7 @@ const projects = [
         desc: 'Nunjucks 구조를 정리하고 화면 컴포넌트를 재설계해 유지보수성과 확장성을 높인 구축 프로젝트입니다.',
         tags: ['Nunjucks', 'Gulp', 'Sass', 'JavaScript', 'Web Accessibility Mark(Web Watch)'],
         link: 'https://wisebiz.bccard.com/app/corp/Intro.corp',
-        year: '2025.12 ~ 2026.03',
+        year: '2026.01 ~ 2026.03',
     },
     {
         num: '02',
@@ -27,7 +27,15 @@ const projects = [
         desc: '고도화 작업: 기존 시스템의 UI/UX를 개선하고, 다양한 브라우저와 디바이스에서의 호환성을 높였으며, 유지보수성과 접근성을 강화한 프로젝트입니다.',
         tags: ['html', 'css', 'Jquery'],
         link: 'https://play.google.com/store/apps/details?id=com.knb.psb&hl=ko&pli=1',
-        year: '2025.5 ~ 2026.12',
+        year: '2025.05 ~ 2026.10',
+    },
+    {
+        num: '03',
+        title: '롯데월드 운영',
+        desc: 'React 기반의 주요 서비스 운영 및 유지보수, 신규 기능 개발과 UI/UX 개선을 담당하였습니다.',
+        tags: ['React', 'scss'],
+        link: 'https://www.lotteworld.com/',
+        year: '2025.11 ~ 2026.12',
     },
 ]
 
