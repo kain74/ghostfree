@@ -15,35 +15,11 @@ function getTagColorByIndex(index) {
 const projects = [
     {
         num: '01',
-        title: 'BC WiseBiz Renewal',
+        title: 'BC WiseBiz Renewal(OPEN 예정)',
         desc: '레거시 템플릿 구조를 정리하고 화면 컴포넌트를 재설계해 유지보수성과 확장성을 높인 구축 프로젝트입니다.',
-        tags: ['Nunjucks', 'Gulp', 'Sass', 'JavaScript', 'Web Accessibility'],
-        link: '#none',
-        year: '2026',
-    },
-    {
-        num: '02',
-        title: 'SaaS Admin Console',
-        desc: '데이터 밀도가 높은 운영 화면을 역할별 시나리오에 맞게 재구성하고, 반응형 레이아웃과 상태 흐름을 안정화했습니다.',
-        tags: ['React', 'TypeScript', 'TanStack Query', 'Chart.js'],
-        link: '#',
-        year: '2025',
-    },
-    {
-        num: '03',
-        title: 'Realtime Collaboration Workspace',
-        desc: '실시간 업데이트가 필요한 편집 화면을 설계하고, 충돌을 줄이는 UI 피드백과 상태 동기화 패턴을 구현했습니다.',
-        tags: ['React', 'Node.js', 'WebSocket', 'Zustand'],
-        link: '#',
-        year: '2025',
-    },
-    {
-        num: '04',
-        title: 'Portfolio Motion System',
-        desc: 'GSAP 기반 인터랙션과 섹션 전환 애니메이션을 적용해 브랜드 톤과 탐색 흐름을 동시에 강화한 개인 프로젝트입니다.',
-        tags: ['React', 'Vite', 'GSAP', 'SCSS Modules'],
-        link: '#',
-        year: '2026',
+        tags: ['Nunjucks', 'Gulp', 'Sass', 'JavaScript', 'Web Accessibility Mark(Web Watch)'],
+        link: 'https://wisebiz.bccard.com/app/corp/Intro.corp',
+        year: '2026.04',
     },
 ]
 
@@ -161,8 +137,13 @@ export default function Projects() {
                                 rel={isDisabledLink ? undefined : 'noopener noreferrer'}
                             >
                                 <div className={styles['projects__card-main']}>
-                                    <span className={styles['projects__card-num']}>{p.num}</span>
                                     <div>
+                                        <span
+                                            className={styles['projects__year']}
+                                            style={{ display: 'block', marginBottom: '0.25em' }}
+                                        >
+                                            {p.year}
+                                        </span>
                                         <h3 className={styles['projects__card-title']}>
                                             {p.title}
                                         </h3>
@@ -180,7 +161,6 @@ export default function Projects() {
                                     </div>
                                 </div>
                                 <div className={styles['projects__card-side']}>
-                                    <span className={styles['projects__year']}>{p.year}</span>
                                     <span className={styles['projects__arrow']}>↗</span>
                                 </div>
                             </a>

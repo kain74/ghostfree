@@ -58,12 +58,15 @@ export default function About() {
 
                         <div className={styles['about__facts']}>
                             {[
-                                { label: '위치', value: '서울, 대한민국' },
+                                { label: '위치', value: '충남 천안, 대한민국' },
                                 {
                                     label: '전문분야',
-                                    value: 'React · TypeScript · Frontend Engineering',
+                                    value: 'React · Vue · Nunjucks · Frontend Engineering',
                                 },
-                                { label: '협업', value: '브랜딩 사이트 · 서비스 UI · 운영 화면' },
+                                {
+                                    label: '협업',
+                                    value: '금융권 웹/웹앱 애플리케이션, 브랜트 사이트, 서비스 UI',
+                                },
                             ].map((f) => (
                                 <div key={f.label} className={styles['about__fact']}>
                                     <span className={styles['about__fact-label']}>{f.label}</span>

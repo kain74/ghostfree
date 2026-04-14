@@ -41,7 +41,7 @@
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--text-light);
     margin-bottom: 1.5rem;
 }
 
@@ -175,7 +175,7 @@
 
 .projects__card-desc {
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--text-light);
     line-height: 1.7;
     font-weight: 300;
     max-width: 560px;
@@ -241,7 +241,7 @@
 .projects__year {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--text-dim);
+    color: var(--text-light);
 }
 
 .projects__arrow {

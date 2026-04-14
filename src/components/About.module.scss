@@ -16,7 +16,7 @@
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--text-light);
     margin-bottom: 4rem;
 }
 
@@ -46,7 +46,7 @@
 
 .about__bio {
     font-size: 1rem;
-    color: var(--text-muted);
+    color: var(--text-light);
     line-height: 1.8;
     font-weight: 300;
     margin-bottom: 1.25rem;
@@ -65,16 +65,17 @@
     padding: 0.75rem 0;
     border-bottom: 1px solid var(--border);
     font-size: 13px;
+    color: var(--text-muted);
 }
 
 .about__fact-label {
     font-family: var(--font-mono);
-    color: var(--text-dim);
+    color: var(--text-muted);
     letter-spacing: 0.06em;
 }
 
 .about__fact-value {
-    color: var(--text-muted);
+    color: var(--text-light);
 }
 
 @media (max-width: 768px) {
