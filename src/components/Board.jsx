@@ -455,22 +455,28 @@ export default function Board() {
                                               alignItems: 'center',
                                               width: '100%',
                                           }}
+                                      ></div>
+                                      <h3
+                                          className={styles['board__panel-title']}
+                                          style={{
+                                              marginBottom: '0.5rem',
+                                              overflow: 'hidden',
+                                              textOverflow: 'ellipsis',
+                                              whiteSpace: 'nowrap',
+                                          }}
                                       >
-                                          <h3
-                                              className={styles['board__panel-title']}
-                                              style={{
-                                                  marginRight: '8px',
-                                                  flex: '1 1 auto',
-                                                  minWidth: 0,
-                                                  overflow: 'hidden',
-                                                  textOverflow: 'ellipsis',
-                                                  whiteSpace: 'nowrap',
-                                              }}
-                                          >
-                                              {selectedPost?.title ||
-                                                  form.title ||
-                                                  (mode === 'edit' ? '글 수정' : '')}
-                                          </h3>
+                                          {selectedPost?.title ||
+                                              form.title ||
+                                              (mode === 'edit' ? '글 수정' : '')}
+                                      </h3>
+                                      <div
+                                          style={{
+                                              display: 'flex',
+                                              alignItems: 'center',
+                                              width: '100%',
+                                              justifyContent: 'flex-end',
+                                          }}
+                                      >
                                           <button
                                               type="button"
                                               className={styles['board__ghost-button']}
