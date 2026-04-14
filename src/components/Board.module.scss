@@ -79,6 +79,7 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--text-dim);
+    font-weight: 400;
 }
 
 .board__submit {
@@ -300,7 +301,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 .board__modal-card .board__ghost-button span[aria-hidden='true'] {
     font-size: 20px;
@@ -335,7 +336,7 @@
     color: #000;
     font-size: 1.35rem;
     letter-spacing: 0.14em;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .board__modal-card .board__detail-title {
