@@ -450,7 +450,9 @@ export default function Board() {
                               >
                                   <div className={styles['board__panel-head']}>
                                       <h3 className={styles['board__panel-title']}>
-                                          {mode === 'edit' ? '글 수정' : ''}
+                                          {selectedPost?.title ||
+                                              form.title ||
+                                              (mode === 'edit' ? '글 수정' : '')}
                                       </h3>
 
                                       <div className={styles['board__actions']}>
