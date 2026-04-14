@@ -109,10 +109,6 @@
     transform: translateY(-1px);
 }
 
-.board__ghost-button:hover {
-    border-color: var(--border-hover);
-    color: var(--text);
-}
 
 .board__submit:hover {
     background: rgba(200, 169, 122, 0.92);
