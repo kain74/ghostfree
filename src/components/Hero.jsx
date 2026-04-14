@@ -5,7 +5,7 @@ import styles from './Hero.module.scss'
 
 const headlinePrimary = '사용자 흐름을 설계하고'
 const headlineAccentLead = '인터페이스'
-const headlineAccentTail = '를 완성합니다.'
+const headlineAccentTail = '를 완성합니다'
 
 function renderHeadlineChars(text) {
     return Array.from(text).map((char, index) => (
