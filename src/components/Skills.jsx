@@ -13,11 +13,7 @@ const skillGroups = [
     },
     {
         category: 'Collaboration',
-        skills: ['Git', 'GitHub', 'Figma', 'Storybook', 'Jira'],
-    },
-    {
-        category: 'Exploring',
-        skills: ['React Native', 'Playwright', 'Web Performance', 'CI/CD'],
+        skills: ['Git', 'GitHub', 'Figma'],
     },
 ]
 

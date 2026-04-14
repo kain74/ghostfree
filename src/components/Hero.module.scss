@@ -186,7 +186,7 @@
 .hero__scroll-line {
     width: 1px;
     height: 48px;
-    background: linear-gradient(to bottom, transparent, var(--text-dim));
+    background: linear-gradient(to bottom, transparent, var(--text-light));
     animation: scrollDrop 2s ease infinite;
 }
 

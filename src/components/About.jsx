@@ -64,6 +64,10 @@ export default function About() {
                                     value: 'Frontend Engineering(React, Vue)',
                                 },
                                 {
+                                    label: '서브분야',
+                                    value: 'Design UI/UX',
+                                },
+                                {
                                     label: '협업',
                                     value: '금융권 웹/웹앱 애플리케이션',
                                 },
