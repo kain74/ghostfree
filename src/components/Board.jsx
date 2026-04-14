@@ -449,11 +449,21 @@ export default function Board() {
                                   onClick={(event) => event.stopPropagation()}
                               >
                                   <div className={styles['board__panel-head']}>
-                                      <h3 className={styles['board__panel-title']}>
-                                          {selectedPost?.title ||
-                                              form.title ||
-                                              (mode === 'edit' ? '글 수정' : '')}
-                                      </h3>
+                                      <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                                          <h3 className={styles['board__panel-title']} style={{ marginRight: '8px', flex: '1 1 auto', minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                              {selectedPost?.title ||
+                                                  form.title ||
+                                                  (mode === 'edit' ? '글 수정' : '')}
+                                          </h3>
+                                          <button
+                                              type="button"
+                                              className={styles['board__ghost-button']}
+                                              onClick={closeModal}
+                                              aria-label="닫기"
+                                          >
+                                              <span aria-hidden="true">×</span>
+                                          </button>
+                                      </div>
 
                                       <div className={styles['board__actions']}>
                                           {selectedPost && mode === 'view' && isAdmin ? (
@@ -475,15 +485,6 @@ export default function Board() {
                                                   </button>
                                               </>
                                           ) : null}
-
-                                          <button
-                                              type="button"
-                                              className={styles['board__ghost-button']}
-                                              onClick={closeModal}
-                                              aria-label="닫기"
-                                          >
-                                              <span aria-hidden="true">×</span>
-                                          </button>
                                       </div>
                                   </div>
 
