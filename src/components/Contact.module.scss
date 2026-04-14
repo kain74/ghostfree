@@ -86,21 +86,21 @@
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.12em;
-    color: var(--text-dim);
+    color: var(--text-muted);
     width: 72px;
     flex-shrink: 0;
 }
 
 .contact__link-value {
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--text-light);
     flex: 1;
     transition: color 0.2s;
 }
 
 .contact__arrow {
     font-size: 16px;
-    color: var(--accent);
+    color: var(--text-light);
     opacity: 0.4;
     transition:
         transform 0.2s ease,

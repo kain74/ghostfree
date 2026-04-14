@@ -83,7 +83,7 @@ export default function App() {
                 style={{
                     textAlign: 'center',
                     padding: '3rem 2rem',
-                    color: 'var(--text-dim)',
+                    color: 'var(--text-light)',
                     fontFamily: 'var(--font-mono)',
                     fontSize: '12px',
                     borderTop: '1px solid var(--border)',

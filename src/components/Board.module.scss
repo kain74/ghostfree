@@ -51,7 +51,7 @@
     cursor: pointer;
     font-size: 14px;
     line-height: 1;
-    opacity: 0.35;
+    opacity: 1;
     padding: 2px;
     transition: opacity 0.2s ease;
 }
@@ -171,7 +171,7 @@
 .board__meta,
 .board__message {
     font-size: 12px;
-    color: var(--text-dim);
+    color: var(--text-light);
 }
 
 .board__list-arrow {
@@ -257,7 +257,7 @@
 
 .board__error,
 .board__empty {
-    color: #c36f6f;
+    color: var(--text-muted);
     font-size: 13px;
     padding: 1rem 0;
 }
@@ -274,7 +274,7 @@
 
 .board__empty {
     margin: 0;
-    color: var(--text-dim);
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.7;
     text-align: center;

@@ -36,15 +36,16 @@ export default function About() {
                 <div className={styles['about__content']}>
                     <div className={`${styles['about__column']} ${styles['about__column--left']}`}>
                         <h2 className={styles['about__heading']}>
-                            구조를 세우고
-                            <br />
-                            <span className={styles['about__heading-accent']}>경험을 다듬어</span>
-                            <br />
-                            화면을 완성합니다.
+                            <span className={styles['about__heading-accent']}>실전 경험</span>과{' '}
+                            <span className={styles['about__heading-accent']}>설계</span>로 완성도
+                            높은 UI를 만듭니다.
                         </h2>
                     </div>
 
                     <div className={`${styles['about__column']} ${styles['about__column--right']}`}>
+                        <p className={styles['about__bio']}>
+                            체계적인 구조 설계와 경험을 바탕으로, 더 나은 사용자 화면을 구현합니다.
+                        </p>
                         <p className={styles['about__bio']}>
                             프론트엔드는 브랜드와 제품의 의도를 가장 먼저 전달하는 접점이라고
                             생각합니다. 그래서 화면을 만들기 전에 사용자 흐름과 우선순위를 먼저

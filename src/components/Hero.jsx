@@ -3,9 +3,9 @@ import { animateHero } from '../lib/gsapAnimations'
 import videoBg from '../assets/video/vidio.mp4'
 import styles from './Hero.module.scss'
 
-const headlinePrimary = '사용자 흐름을 설계하고'
-const headlineAccentLead = '인터페이스'
-const headlineAccentTail = '를 완성합니다'
+const headlinePrimary = '함께 성장하는 팀에서'
+const headlineAccentLead = '프론트엔드 개발자로'
+const headlineAccentTail = '가치를 더하겠습니다'
 
 function renderHeadlineChars(text) {
     return Array.from(text).map((char, index) => (
@@ -74,9 +74,9 @@ export default function Hero() {
                 </h1>
 
                 <p className={styles['hero__sub']} data-hero-sub>
-                    기획 의도를 화면으로 번역하고,
+                    비즈니스 목표와 사용자 니즈를 정확히 해석하여,
                     <br />
-                    반응형 UI와 세밀한 인터랙션으로 완성도 높은 경험을 구현합니다.
+                    반응형 UI와 정교한 인터랙션으로 높은 완성도의 경험을 제공합니다.
                 </p>
 
                 <div className={styles['hero__cta']} data-hero-cta>
