@@ -75,7 +75,7 @@
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.14em;
-    color: var(--text-dim);
+    color: var(--text-muted);
 }
 
 .projects__buttons {
@@ -92,7 +92,7 @@
     justify-content: center;
     border: 1px solid var(--border-hover);
     background: transparent;
-    color: var(--text);
+    color: var(--text-muted);
     cursor: pointer;
     transition:
         border-color 0.25s ease,
