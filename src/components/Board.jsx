@@ -430,7 +430,7 @@ export default function Board() {
                                                 {post.title}
                                             </p>
                                             <p className={styles['board__list-sub']}>
-                                                {post.author} · {formatDate(post.createdAt)}
+                                                {post.author} · {formatDate(post.updatedAt)}
                                             </p>
                                         </div>
                                         <span className={styles['board__list-arrow']}>↗</span>
