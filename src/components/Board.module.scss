@@ -81,16 +81,16 @@
     color: var(--text-dim);
 }
 
-.board__ghost-button,
-.board__submit {
     border: 1px solid var(--border-hover);
     background: transparent;
     color: var(--text);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 30px;
     letter-spacing: 0.12em;
-    padding: 0.8rem 1rem;
+    padding: 0;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
     transition:
         border-color 0.25s ease,
         color 0.25s ease,
@@ -110,8 +110,8 @@
 }
 
 .board__ghost-button:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--border-hover);
+    color: var(--text);
 }
 
 .board__submit:hover {
@@ -337,9 +337,11 @@
     color: #000;
 }
 
-.board__modal-card .board__ghost-button:hover,
-.board__modal-card .board__submit:hover {
-    background: linear-gradient(135deg, rgba(255, 250, 236, 0.95), rgba(255, 214, 116, 0.88));
+    /* no hover effect for x button */
+}
+.board__modal-card .board__ghost-button:hover span[aria-hidden="true"] {
+    color: inherit;
+    background: none;
 }
 
 .board__modal-card .board__actions {
