@@ -453,30 +453,23 @@ export default function Board() {
                                           style={{
                                               display: 'flex',
                                               alignItems: 'center',
+                                              justifyContent: 'space-between',
                                               width: '100%',
                                           }}
-                                      ></div>
-                                      <h3
-                                          className={styles['board__panel-title']}
-                                          style={{
-                                              marginBottom: '0.5rem',
-                                              overflow: 'hidden',
-                                              textOverflow: 'ellipsis',
-                                              whiteSpace: 'nowrap',
-                                          }}
                                       >
-                                          {selectedPost?.title ||
-                                              form.title ||
-                                              (mode === 'edit' ? '글 수정' : '')}
-                                      </h3>
-                                      <div
-                                          style={{
-                                              display: 'flex',
-                                              alignItems: 'center',
-                                              width: '100%',
-                                              justifyContent: 'flex-end',
-                                          }}
-                                      >
+                                          <h3
+                                              className={styles['board__panel-title']}
+                                              style={{
+                                                  margin: 0,
+                                                  overflow: 'hidden',
+                                                  textOverflow: 'ellipsis',
+                                                  whiteSpace: 'nowrap',
+                                              }}
+                                          >
+                                              {selectedPost?.title ||
+                                                  form.title ||
+                                                  (mode === 'edit' ? '글 수정' : '')}
+                                          </h3>
                                           <button
                                               type="button"
                                               className={styles['board__ghost-button']}
@@ -486,7 +479,6 @@ export default function Board() {
                                               <span aria-hidden="true">×</span>
                                           </button>
                                       </div>
-
                                       <div className={styles['board__actions']}>
                                           {selectedPost && mode === 'view' && isAdmin ? (
                                               <>
