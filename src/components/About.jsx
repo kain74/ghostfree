@@ -61,11 +61,11 @@ export default function About() {
                                 { label: '위치', value: '충남 천안, 대한민국' },
                                 {
                                     label: '전문분야',
-                                    value: 'React · Vue · Nunjucks · Frontend Engineering',
+                                    value: 'Frontend Engineering(React, Vue)',
                                 },
                                 {
                                     label: '협업',
-                                    value: '금융권 웹/웹앱 애플리케이션, 브랜트 사이트, 서비스 UI',
+                                    value: '금융권 웹/웹앱 애플리케이션',
                                 },
                             ].map((f) => (
                                 <div key={f.label} className={styles['about__fact']}>
