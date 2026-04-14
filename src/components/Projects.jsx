@@ -23,19 +23,27 @@ const projects = [
     },
     {
         num: '02',
-        title: '경남은행',
-        desc: '고도화 작업: 기존 시스템의 UI/UX를 개선하고, 다양한 브라우저와 디바이스에서의 호환성을 높였으며, 유지보수성과 접근성을 강화한 프로젝트입니다.',
-        tags: ['html', 'css', 'Jquery'],
-        link: 'https://play.google.com/store/apps/details?id=com.knb.psb&hl=ko&pli=1',
-        year: '2025.05 ~ 2026.10',
-    },
-    {
-        num: '03',
         title: '롯데월드 운영',
         desc: 'React 기반의 주요 서비스 운영 및 유지보수, 신규 기능 개발과 UI/UX 개선을 담당하였습니다.',
         tags: ['React', 'scss'],
         link: 'https://www.lotteworld.com/',
         year: '2025.11 ~ 2026.12',
+    },
+    {
+        num: '03',
+        title: '경남은행',
+        desc: '고도화 작업으로 기존 시스템의 UI/UX를 개선하고, 다양한 브라우저와 디바이스에서의 호환성을 높였으며, 유지보수성과 접근성을 강화한 프로젝트입니다.',
+        tags: ['html', 'css', 'Jquery'],
+        link: 'https://play.google.com/store/apps/details?id=com.knb.psb&hl=ko&pli=1',
+        year: '2025.05 ~ 2026.10',
+    },
+    {
+        num: '04',
+        title: '신한투자증권 NSMTS',
+        desc: 'Vuew3.0 기존 시스템의 UI/UX를 개선작업',
+        tags: ['Vuew3.0', 'scss'],
+        link: 'https://play.google.com/store/apps/details?id=com.shinhaninvest.nsmts&hl=ko',
+        year: '2025.01 ~ 2026.04',
     },
 ]
 
