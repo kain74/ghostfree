@@ -300,6 +300,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .board__modal-card .board__ghost-button span[aria-hidden='true'] {
     font-size: 20px;
