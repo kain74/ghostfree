@@ -43,15 +43,15 @@ export default function Contact() {
                 <div className={styles['contact__content']}>
                     <div>
                         <h2 className={styles['contact__heading']}>
-                            다음 프로젝트의
+                            새로운 팀에서
                             <br />
                             <span className={styles['contact__heading-accent']}>
-                                프론트엔드를 함께 만듭니다.
+                                함께 성장할 기회를 찾고 있습니다.
                             </span>
                         </h2>
                         <p className={styles['contact__sub']}>
-                            브랜드 사이트부터 서비스 UI, 운영 화면까지 사용자 경험을 개선하는
-                            작업이라면 편하게 연락해주세요.
+                            프론트엔드 개발 포지션에 적합한 인재를 찾고 계시다면, 언제든 편하게 연락
+                            부탁드립니다.
                         </p>
                     </div>
 
