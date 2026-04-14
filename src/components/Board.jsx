@@ -470,35 +470,44 @@ export default function Board() {
                                                   form.title ||
                                                   (mode === 'edit' ? '글 수정' : '')}
                                           </h3>
-                                          <button
-                                              type="button"
-                                              className={styles['board__ghost-button']}
-                                              onClick={closeModal}
-                                              aria-label="닫기"
+                                          <div
+                                              style={{
+                                                  display: 'flex',
+                                                  alignItems: 'center',
+                                                  gap: '0.5rem',
+                                              }}
                                           >
-                                              <span aria-hidden="true">×</span>
-                                          </button>
-                                      </div>
-                                      <div className={styles['board__actions']}>
-                                          {selectedPost && mode === 'view' && isAdmin ? (
-                                              <>
-                                                  <button
-                                                      type="button"
-                                                      className={styles['board__ghost-button']}
-                                                      onClick={handleEditMode}
+                                              {selectedPost && mode === 'view' && isAdmin && (
+                                                  <div
+                                                      className={styles['board__actions']}
+                                                      style={{ marginRight: '0.5rem' }}
                                                   >
-                                                      수정
-                                                  </button>
-                                                  <button
-                                                      type="button"
-                                                      className={`${styles['board__ghost-button']} ${styles['board__ghost-button--danger']}`}
-                                                      onClick={handleDelete}
-                                                      disabled={submitting}
-                                                  >
-                                                      삭제
-                                                  </button>
-                                              </>
-                                          ) : null}
+                                                      <button
+                                                          type="button"
+                                                          className={styles['board__ghost-button']}
+                                                          onClick={handleEditMode}
+                                                      >
+                                                          수정
+                                                      </button>
+                                                      <button
+                                                          type="button"
+                                                          className={`${styles['board__ghost-button']} ${styles['board__ghost-button--danger']}`}
+                                                          onClick={handleDelete}
+                                                          disabled={submitting}
+                                                      >
+                                                          삭제
+                                                      </button>
+                                                  </div>
+                                              )}
+                                              <button
+                                                  type="button"
+                                                  className={styles['board__ghost-button']}
+                                                  onClick={closeModal}
+                                                  aria-label="닫기"
+                                              >
+                                                  <span aria-hidden="true">×</span>
+                                              </button>
+                                          </div>
                                       </div>
                                   </div>
 
