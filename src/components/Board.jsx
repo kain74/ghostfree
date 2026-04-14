@@ -449,8 +449,24 @@ export default function Board() {
                                   onClick={(event) => event.stopPropagation()}
                               >
                                   <div className={styles['board__panel-head']}>
-                                      <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-                                          <h3 className={styles['board__panel-title']} style={{ marginRight: '8px', flex: '1 1 auto', minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                      <div
+                                          style={{
+                                              display: 'flex',
+                                              alignItems: 'center',
+                                              width: '100%',
+                                          }}
+                                      >
+                                          <h3
+                                              className={styles['board__panel-title']}
+                                              style={{
+                                                  marginRight: '8px',
+                                                  flex: '1 1 auto',
+                                                  minWidth: 0,
+                                                  overflow: 'hidden',
+                                                  textOverflow: 'ellipsis',
+                                                  whiteSpace: 'nowrap',
+                                              }}
+                                          >
                                               {selectedPost?.title ||
                                                   form.title ||
                                                   (mode === 'edit' ? '글 수정' : '')}
