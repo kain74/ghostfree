@@ -251,6 +251,7 @@
 @media (max-width: 640px) {
     .hero {
         padding: 7rem 1.5rem 5rem;
+        justify-content: flex-start;
     }
 
     .hero__headline {
