@@ -4,7 +4,8 @@ import videoBg from '../assets/video/vidio.mp4'
 import styles from './Hero.module.scss'
 
 const headlinePrimary = '함께 성장하는 팀에서'
-const headlineAccentLead = '프론트엔드 개발자로'
+const headlineAccentLeadAccent = '프론트엔드 개발자'
+const headlineAccentLeadWhite = '로 '
 const headlineAccentTail = '가치를 더하겠습니다'
 
 function renderHeadlineChars(text) {
@@ -62,10 +63,15 @@ export default function Hero() {
                     <br />
                     <span
                         className={`${styles['hero__headline-line']} ${styles['hero__headline-accent']}`}
-                        aria-label={`${headlineAccentLead}${headlineAccentTail}`}
+                        aria-label={`${headlineAccentLeadAccent}${headlineAccentLeadWhite}${headlineAccentTail}`}
                     >
                         <span className={styles['hero__headline-emphasis']}>
-                            {renderHeadlineChars(headlineAccentLead)}
+                            <span className={styles['hero__headline-accent-only']}>
+                                {renderHeadlineChars(headlineAccentLeadAccent)}
+                            </span>
+                            <span className={styles['hero__headline-white']}>
+                                {renderHeadlineChars(headlineAccentLeadWhite)}
+                            </span>
                         </span>
                         <span className={styles['hero__headline-neutral']}>
                             {renderHeadlineChars(headlineAccentTail)}
@@ -84,13 +90,13 @@ export default function Hero() {
                         href="#projects"
                         className={`${styles['hero__button']} ${styles['hero__button--primary']}`}
                     >
-                        프로젝트 보기
+                        프로젝트
                     </a>
                     <a
                         href="#contact"
                         className={`${styles['hero__button']} ${styles['hero__button--ghost']}`}
                     >
-                        협업 문의
+                        연락처
                     </a>
                 </div>
             </div>

@@ -1,3 +1,9 @@
+.hero__headline-accent-only {
+    color: var(--accent);
+}
+.hero__headline-white {
+    color: var(--text);
+}
 .hero {
     position: relative;
     min-height: 100vh;
