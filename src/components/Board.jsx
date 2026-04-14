@@ -478,8 +478,9 @@ export default function Board() {
                                               type="button"
                                               className={styles['board__ghost-button']}
                                               onClick={closeModal}
+                                              aria-label="닫기"
                                           >
-                                              닫기
+                                              <span aria-hidden="true">×</span>
                                           </button>
                                       </div>
                                   </div>
