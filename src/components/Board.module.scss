@@ -315,11 +315,18 @@
     padding: 0;
     min-width: 0;
     box-shadow: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 }
 .board__modal-card .board__ghost-button span[aria-hidden='true'] {
     font-size: 20px;
     line-height: 1;
     display: inline-block;
+}
 }
 .board__modal-card .board__submit {
     border: 1px solid rgba(0, 0, 0, 0.28);
