@@ -10,7 +10,7 @@
     top: 0;
     width: 38px;
     height: 38px;
-    border-radius: 50%;
+    border-radius: 44% 56% 48% 52% / 52% 48% 56% 44%; /* 유기적 타원형 */
     background: radial-gradient(
         circle,
         rgba(255, 120, 80, 0.22) 0%,
