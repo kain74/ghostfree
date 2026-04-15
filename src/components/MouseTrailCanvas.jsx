@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
-const TRAIL_COUNT = 30
-const DOT_BASE_SIZE = 30
+const TRAIL_COUNT = 15
+const DOT_BASE_SIZE = 20
 
 function isMobile() {
     // Simple mobile detection
