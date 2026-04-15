@@ -59,7 +59,7 @@ export default function App() {
 
     return (
         <div className="app-root">
-            <MouseTrail />
+            {loaded && <MouseTrail />}
             <div
                 className={`app-loader ${loaded ? 'app-loader--hidden' : ''}`}
                 aria-hidden={loaded}
