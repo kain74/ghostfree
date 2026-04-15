@@ -1,9 +1,15 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const TRAIL_COUNT = 30
 const DOT_BASE_SIZE = 30
 
+function isMobile() {
+    // Simple mobile detection
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 export default function MouseTrailCanvas() {
+    const [isMobileDevice, setIsMobileDevice] = useState(false);
     const canvasRef = useRef(null)
     const mouse = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 })
     const coords = useRef(
@@ -11,6 +17,11 @@ export default function MouseTrailCanvas() {
     )
 
     useEffect(() => {
+        setIsMobileDevice(isMobile());
+    }, []);
+
+    useEffect(() => {
+        if (isMobileDevice) return;
         const handleMove = (e) => {
             mouse.current.x = e.clientX
             mouse.current.y = e.clientY
@@ -146,8 +157,9 @@ export default function MouseTrailCanvas() {
             window.removeEventListener('resize', resize)
             cancelAnimationFrame(animId)
         }
-    }, [])
+    }, [isMobileDevice])
 
+    if (isMobileDevice) return null;
     return (
         <canvas
             ref={canvasRef}
