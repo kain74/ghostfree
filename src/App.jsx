@@ -89,7 +89,7 @@ export default function App() {
                     borderTop: '1px solid var(--border)',
                 }}
             >
-                © 2026 GhostFree Frontend Portfolio.
+                © 2026 GhostFree FrontDevelop. All rights reserved.
             </footer>
             <Nav />
         </div>
