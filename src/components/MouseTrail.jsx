@@ -29,7 +29,9 @@ export default function MouseTrail() {
             for (let i = 0; i < TRAIL_COUNT; i++) {
                 const el = trailRef.current[i]
                 if (el) {
-                    el.style.transform = `translate3d(${coords.current[i].x}px, ${coords.current[i].y}px, 0) scale(${1.38 - i * 0.045})`
+                    // 중앙 정렬을 위해 반지름만큼 보정
+                    const size = 38 * (1.38 - i * 0.045)
+                    el.style.transform = `translate3d(${coords.current[i].x - size / 2}px, ${coords.current[i].y - size / 2}px, 0) scale(${1.38 - i * 0.045})`
                     el.style.opacity = `${0.16 + (1 - i / TRAIL_COUNT) * 0.42}`
                 }
             }
