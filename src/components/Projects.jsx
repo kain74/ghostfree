@@ -43,7 +43,7 @@ const projects = [
         desc: 'Vuew3.0 기존 시스템의 UI/UX를 개선작업',
         tags: ['Vuew3.0', 'scss'],
         link: 'https://play.google.com/store/apps/details?id=com.shinhaninvest.nsmts&hl=ko',
-        year: '2025.01 ~ 2026.04',
+        year: '2025.01 ~ 2025.04',
     },
 ]
 
