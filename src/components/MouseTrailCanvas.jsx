@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const TRAIL_COUNT = 15
-const DOT_BASE_SIZE = 20
+const DOT_BASE_SIZE = 15
 
 function isMobile() {
     // Simple mobile detection
@@ -69,75 +69,28 @@ export default function MouseTrailCanvas() {
                     ctx.lineTo(x, y)
                 }
             }
-            // 그라데이션 컬러
-            const ribbonGrad = ctx.createLinearGradient(
+            // 더 물감 같은 느낌의 리본: 진한 색상과 두꺼운 라인, multiply 블렌드
+            ctx.globalCompositeOperation = 'lighter' // 더 밝게 겹치도록
+            const paintGrad = ctx.createLinearGradient(
                 coords.current[0].x,
                 coords.current[0].y,
                 coords.current[TRAIL_COUNT - 1].x,
                 coords.current[TRAIL_COUNT - 1].y
             )
-            ribbonGrad.addColorStop(0, 'hsla(18,92%,62%,0.38)')
-            ribbonGrad.addColorStop(0.5, 'hsla(32,92%,60%,0.22)')
-            ribbonGrad.addColorStop(1, 'hsla(52,92%,54%,0.13)')
-            ctx.strokeStyle = ribbonGrad
+            paintGrad.addColorStop(0, 'rgba(255, 120, 60, 0.75)')
+            paintGrad.addColorStop(0.5, 'rgba(255, 200, 80, 0.55)')
+            paintGrad.addColorStop(1, 'rgba(80, 180, 255, 0.38)')
+            ctx.strokeStyle = paintGrad
             ctx.lineCap = 'round'
             ctx.lineJoin = 'round'
-            // 앞이 두껍고 뒤가 가늘게
-            ctx.lineWidth = DOT_BASE_SIZE * 1.25
+            ctx.lineWidth = DOT_BASE_SIZE * 2.1
+            ctx.shadowColor = 'rgba(255,180,80,0.18)'
+            ctx.shadowBlur = 48 + Math.min(speed * 2.5, 80)
             ctx.stroke()
-            ctx.restore()
-            // Color gradient along the path (approximate by overlay)
-            const grad = ctx.createLinearGradient(
-                coords.current[0].x,
-                coords.current[0].y,
-                coords.current[TRAIL_COUNT - 1].x,
-                coords.current[TRAIL_COUNT - 1].y
-            )
-            grad.addColorStop(0, 'hsla(18,92%,62%,0.38)')
-            grad.addColorStop(0.5, 'hsla(32,92%,60%,0.22)')
-            grad.addColorStop(1, 'hsla(52,92%,54%,0.13)')
-            ctx.strokeStyle = grad
-            ctx.lineWidth = DOT_BASE_SIZE * 1.2
-            ctx.lineCap = 'round'
-            ctx.lineJoin = 'round'
-            ctx.stroke()
+            ctx.globalCompositeOperation = 'source-over'
             ctx.restore()
 
-            // Optionally, overlay faint ellipses for extra glow
-            for (let i = TRAIL_COUNT - 1; i >= 0; i -= 3) {
-                const t = i / (TRAIL_COUNT - 1)
-                const x = coords.current[i].x
-                const y = coords.current[i].y
-                const hue = 18 + t * 34
-                const light = 54 + t * 8
-                const alpha = 0.08 + (1 - t) * 0.13
-                // 뒤로 갈수록 더 작게
-                const size =
-                    DOT_BASE_SIZE *
-                    (1.0 - t * 0.85) *
-                    (0.98 + Math.sin(now / 900 + i * 0.13) * 0.13 + t * 0.08)
-                ctx.save()
-                ctx.globalAlpha = alpha
-                const squiggle = 0.18 + Math.sin(performance.now() / 700 + i * 0.7) * 0.13
-                ctx.ellipse(
-                    x,
-                    y,
-                    size * (1 + squiggle),
-                    size * (1 - squiggle),
-                    Math.sin(performance.now() / 1000 + i) * 0.7,
-                    0,
-                    Math.PI * 2
-                )
-                const grad = ctx.createRadialGradient(x, y, 0, x, y, size * 0.6)
-                grad.addColorStop(0, `hsla(${hue},92%,${light}%,0.22)`)
-                grad.addColorStop(0.6, `hsla(${hue},92%,${light}%,0.13)`)
-                grad.addColorStop(1, 'transparent')
-                ctx.fillStyle = grad
-                ctx.shadowColor = `hsla(${hue},92%,${light}%,0.13)`
-                ctx.shadowBlur = 24 + 18 * (1 - t)
-                ctx.fill()
-                ctx.restore()
-            }
+            // 동그라미(물방울) 제거: 자연스러운 리본만 남김
             animId = requestAnimationFrame(animate)
         }
         // Resize canvas
@@ -168,8 +121,8 @@ export default function MouseTrailCanvas() {
                 inset: 0,
                 pointerEvents: 'none',
                 zIndex: 99999,
-                mixBlendMode: 'lighten',
-                background: 'none',
+                mixBlendMode: 'lighter', // 더 잘 보이게
+                background: 'rgba(255,255,255,0.01)', // 완전 투명 아님, 디버깅용
             }}
             width={window.innerWidth}
             height={window.innerHeight}
