@@ -7,6 +7,7 @@ import Board from './components/Board'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import MouseTrail from './components/MouseTrail'
+import MouseTrailCanvas from './components/MouseTrailCanvas'
 
 export default function App() {
     const [loaded, setLoaded] = useState(false)
@@ -60,6 +61,7 @@ export default function App() {
     return (
         <div className="app-root">
             {loaded && <MouseTrail />}
+            {loaded && <MouseTrailCanvas />}
             <div
                 className={`app-loader ${loaded ? 'app-loader--hidden' : ''}`}
                 aria-hidden={loaded}
