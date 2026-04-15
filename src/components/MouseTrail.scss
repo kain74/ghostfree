@@ -1,0 +1,30 @@
+.mouse-trail-root {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99999;
+}
+.mouse-trail-dot {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 120, 80, 0.22) 0%,
+        rgba(255, 80, 60, 0.13) 60%,
+        transparent 100%
+    );
+    box-shadow:
+        0 0 48px 18px rgba(255, 120, 80, 0.13),
+        0 0 32px 10px rgba(255, 80, 60, 0.09);
+    filter: blur(2px);
+    mix-blend-mode: lighten;
+    pointer-events: none;
+    transition:
+        background 0.2s,
+        filter 0.3s;
+    will-change: transform, opacity;
+}
