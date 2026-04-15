@@ -38,7 +38,16 @@ export default function Nav() {
             className={`${styles.nav} ${scrolled ? styles['nav--scrolled'] : ''} ${menuOpen ? styles['nav--menu-open'] : ''}`}
         >
             <a href="#hero" className={styles['nav__logo']}>
-                <span className={styles['nav__logo-mark']}>✦</span>
+                <span
+                    className={`material-symbols-outlined ${styles['nav__logo-mark']}`}
+                    style={{
+                        fontVariationSettings: '"wght" 100',
+                        fontSize: '1.8rem',
+                        verticalAlign: 'middle',
+                    }}
+                >
+                    skull
+                </span>
                 <span>GhostFree</span>
             </a>
 
