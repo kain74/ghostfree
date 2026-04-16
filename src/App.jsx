@@ -8,6 +8,7 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import MouseTrail from './components/MouseTrail'
 import MouseTrailCanvas from './components/MouseTrailCanvas'
+import PersonalSection from './components/PersonalSection'
 
 export default function App() {
     const [loaded, setLoaded] = useState(false)
@@ -82,6 +83,7 @@ export default function App() {
                 <Skills />
                 <Contact />
                 <Board />
+                <PersonalSection />
             </main>
             <footer
                 style={{
