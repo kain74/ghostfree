@@ -16,7 +16,7 @@ const projects = [
     {
         num: '01',
         title: 'BC WiseBiz Renewal(OPEN 예정)',
-        desc: 'Nunjucks 구조를 정리하고 화면 컴포넌트를 재설계해 유지보수성과 확장성을 높인 구축 프로젝트입니다.',
+        desc: 'Nunjucks 구조로 화면 컴포넌트를 재설계해 유지보수성과 확장성을 높인 구축 프로젝트입니다.',
         tags: ['Nunjucks', 'Gulp', 'Sass', 'JavaScript', '웹접근성 마크획득(Web Watch)'],
         link: 'https://wisebiz.bccard.com/app/corp/Intro.corp',
         year: '2026.01 ~ 2026.03',
