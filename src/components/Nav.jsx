@@ -7,7 +7,6 @@ const links = [
     { label: '기술', href: '#skills' },
     { label: '연락처', href: '#contact' },
     { label: '공지사항', href: '#board' },
-    { label: '개인작업', href: '#personal' },
 ]
 
 export default function Nav() {
