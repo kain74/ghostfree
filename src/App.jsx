@@ -83,7 +83,7 @@ export default function App() {
                 <Skills />
                 <Contact />
                 <Board />
-                {/* <PersonalSection /> */}
+                <PersonalSection />
             </main>
             <footer
                 style={{

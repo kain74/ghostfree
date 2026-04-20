@@ -1,28 +1,20 @@
+// 4월 16일 버전 기준 중첩 구조 복원
 .nav {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 3rem;
     transition: all 0.3s ease;
     font-family: var(--font-mono);
     font-size: 13px;
-
     &--scrolled {
         background: rgba(8, 8, 6, 0.92);
         backdrop-filter: blur(24px) saturate(1.4);
         padding: 1rem 3rem;
         border-bottom: 1px solid var(--border);
     }
-
     &--menu-open {
         height: 100%;
     }
-
     &__logo {
         display: flex;
         align-items: center;
@@ -33,28 +25,23 @@
         color: var(--text);
         letter-spacing: 0.04em;
         transition: color 0.2s;
-
         &:hover {
             color: var(--accent);
         }
-
         &-mark {
             color: var(--accent-2);
             font-size: 16px;
         }
     }
-
     &__links {
         display: flex;
         list-style: none;
         gap: 2.5rem;
-
         &--open {
             opacity: 1;
             pointer-events: all;
         }
     }
-
     &__link {
         color: var(--text);
         letter-spacing: 0.14em;
@@ -62,7 +49,6 @@
         text-transform: uppercase;
         transition: color 0.3s ease;
         position: relative;
-
         &::after {
             content: '';
             position: absolute;
@@ -73,16 +59,13 @@
             background: var(--accent);
             transition: width 0.25s ease;
         }
-
         &:hover {
             color: var(--text);
-
             &::after {
                 width: 100%;
             }
         }
     }
-
     &__burger {
         display: none;
         position: absolute;
@@ -96,7 +79,6 @@
         border: none;
         cursor: pointer;
         padding: 0;
-
         &-line {
             position: absolute;
             left: 5px;
@@ -104,7 +86,6 @@
             height: 1.5px;
             background: #fff;
             transition: all 0.25s ease;
-
             &--middle {
                 background: #fff;
             }
@@ -129,20 +110,14 @@
             }
         }
     }
-}
-
-@media (max-width: 640px) {
-    .nav {
+    @media (max-width: 640px) {
         padding: 1.2rem 1.5rem;
-
         &--scrolled {
             padding: 0.8rem 1.5rem;
         }
-
         &__burger {
             display: flex;
         }
-
         &__links {
             position: fixed;
             top: 0;
@@ -158,6 +133,10 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
+            &--open {
+                opacity: 1;
+                pointer-events: all;
+            }
         }
     }
 }

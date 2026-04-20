@@ -14,8 +14,8 @@ function getTagColorByIndex(index) {
 
 const projects = [
     {
-        num: '01',
-        title: 'BC WiseBiz Renewal(04.27 OPEN)',
+        num: '04',
+        title: '신한투자증권 커뮤니티',
         desc: 'Nunjucks 구조로 화면 컴포넌트를 재설계해 유지보수성과 확장성을 높인 구축 프로젝트입니다.',
         tags: ['Nunjucks', 'Gulp', 'Sass', 'JavaScript', '웹접근성 마크획득(Web Watch)'],
         link: 'https://wisebiz.bccard.com',

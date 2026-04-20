@@ -2,6 +2,79 @@
     padding: 10rem 5rem;
     border-top: 1px solid var(--border);
     background: var(--bg-2);
+    // 4월 16일 버전의 전체 내용으로 복원
+    &__inner {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+    }
+    &__num {
+        color: var(--accent-2);
+    }
+    &__heading {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 200;
+        color: var(--text);
+        margin-bottom: 4rem;
+        letter-spacing: -0.02em;
+    }
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+    }
+    &__category {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        margin-bottom: 1.25rem;
+    }
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--text-muted);
+        font-weight: 300;
+        transition: color 0.2s;
+        &:hover {
+            color: var(--text);
+        }
+    }
+    &__bullet {
+        color: var(--text-muted);
+        font-size: 18px;
+        line-height: 1;
+    }
+    @media (max-width: 768px) {
+        padding: 6rem 1.5rem;
+    }
 
     &__inner {
         max-width: 1100px;
