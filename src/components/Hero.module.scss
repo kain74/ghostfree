@@ -180,10 +180,17 @@
         &-line {
             width: 1px;
             height: 48px;
-            background: linear-gradient(to bottom, transparent, var(--text-light));
+            background: linear-gradient(to bottom, transparent, var(--text-dim));
             animation: scrollDrop 2s ease infinite;
         }
     }
+    &__scroll-line {
+        width: 1px;
+        height: 48px;
+        background: linear-gradient(to bottom, transparent, var(--text-dim));
+        animation: scrollDrop 2s ease infinite;
+    }
+
     @keyframes scrollDrop {
         0% {
             transform: scaleY(0);
@@ -208,7 +215,8 @@
             font-size: clamp(2.2rem, 9.5vw, 3.4rem);
         }
         &__scroll-hint {
-            left: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }
